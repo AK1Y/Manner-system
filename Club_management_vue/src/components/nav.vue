@@ -17,7 +17,7 @@
                     />
                 </el-col>
                 <el-col :span="18" style="font-size: 26px">
-                    雅思嘉社团管理系统
+                    GO!青春
                 </el-col>
             </el-row>
         </div>

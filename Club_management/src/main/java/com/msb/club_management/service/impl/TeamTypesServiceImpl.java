@@ -10,6 +10,7 @@ import com.msb.club_management.utils.StringUtils;
 import com.msb.club_management.vo.TeamTypes;
 import com.msb.club_management.vo.Teams;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
