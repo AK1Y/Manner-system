@@ -66,7 +66,7 @@ public class AssociationManagerApplication  implements WebMvcConfigurer{
      * 创建并配置Mybatis Plus分页拦截器，用于MySQL数据库的分页查询。
      * 这个拦截器会自动处理分页逻辑，使得在查询时不需要手动进行分页操作。
      *
-     * @return MybatisPlusInterceptor 分页拦截器实例
+     * @return MybatisPlusInterceptor 分页拦截器
      */
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() {
