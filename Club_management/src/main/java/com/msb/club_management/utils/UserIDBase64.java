@@ -11,13 +11,16 @@ public class UserIDBase64 {
      * @return
      */
 	public static Integer decoderUserID(String encodedUserID)  {
+		//判空
 		if (StringUtils.isBlank(encodedUserID)) {
 			return null;
 		}
+		//反转字符串后填充，用#替代=防止字符冲突
 		try {
 			String reversedString = new StringBuffer(encodedUserID).reverse().toString();
 			String base64String = reversedString.replaceAll("#", "=");
 			int userIDPos = base64String.indexOf("==") + 6;
+			//解码  恢复String形式
 			String realBase64UserID = base64String.substring(userIDPos);
 			String base64Encoded = new String(Base64.getDecoder().decode(realBase64UserID.getBytes()));
 			return Integer.parseInt(base64Encoded);
@@ -32,12 +35,16 @@ public class UserIDBase64 {
      * @return
      */
 	public static String encoderUserID(Integer userID){
+		//将用户 ID 转换为字符串，并进行 Base64 编码
 		String base64UserIDEncoded = Base64.getEncoder().encodeToString((userID + "").getBytes());
+		//当前编码字符串
 		String currentStringBase64Encoded = Base64.getEncoder().encodeToString((System.currentTimeMillis() + "").getBytes());
+		//KeyString拼接
 		String keyString = currentStringBase64Encoded  
 				+ currentStringBase64Encoded.substring(4, 8) + base64UserIDEncoded;
 		byte[] codeBytes = keyString.getBytes();
 		byte[] ordedBytes = new byte[codeBytes.length];
+		//reverse代码使其更难被破解
 		for(int i=0; i<codeBytes.length; i++){
 			ordedBytes[i] = codeBytes[codeBytes.length-i-1];
 		}

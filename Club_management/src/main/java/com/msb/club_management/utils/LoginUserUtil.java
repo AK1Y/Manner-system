@@ -2,9 +2,6 @@ package com.msb.club_management.utils;
 
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * Created by Tony on 2016/8/23.
- */
 public class LoginUserUtil {
 
     /**
