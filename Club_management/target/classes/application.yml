@@ -1,0 +1,28 @@
+# 服务器配置
+server:
+  port: 9211  # 服务器端口
+  servlet:
+    context-path: /association  # Servlet的上下文路径
+
+# Spring框架配置
+spring:
+  mvc:
+    static-path-pattern: /**  # 静态资源访问路径配置
+  devtools:
+    restart:
+      enabled: false  # 启用热重启功能
+      additional-paths: src/main/java  # 热重启额外监视的路径
+  datasource:  # 数据源配置
+    username: root  # 数据库用户名
+    password: 123456  # 数据库密码
+    url: jdbc:mysql://localhost:3306/text?zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true  # 数据库连接URL
+    driver-class-name: com.mysql.cj.jdbc.Driver  # 数据库驱动类名
+    # 数据源初始化配置
+    initialSize: 5  # 连接池初始大小
+    minIdle: 5  # 连接池最小空闲连接数
+    maxWait: 60000  # 最大等待时间
+
+# Mybatis-Plus配置
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  # 日志实现方式
